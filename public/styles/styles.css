@@ -1,3 +1,67 @@
+body {
+  background: url("/images/bg.png");
+}
+
+nav {
+  background: #b5a99c;
+  border-bottom: 5px solid #472a0f;
+}
+
+.btn {
+  font-family: "Londrina Solid", sans-serif;
+  color: #fff;
+  font-size: 1.25rem;
+  box-shadow: 2px 2px 2px gray;
+}
+
+.jumbotron {
+  background: #fff;
+  /* border: 5px solid #ffc107; */
+}
+
+h1 {
+  font-family: "Londrina Solid", sans-serif;
+  font-size: 6rem;
+  margin: 25px 0 -20px;
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+h3 {
+  margin: 15vh 0 10vh;
+  font-family: "Londrina Solid", sans-serif;
+  color: #ffc107;
+  font-size: 3rem;
+  transform: rotate(-15deg);
+  text-shadow: 2px 2px 2px gray;
+}
+
+.carousel {
+  width: 400px;
+}
+
+.carousel-image {
+  margin: 0px 50px 50px;
+}
+
+ol.carousel-indicators li,
+ol.carousel-indicators li.active {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 10px 10px 0px;
+  border-radius: 50%;
+  border: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
+}
+
+.footer {
+  height: 10vh;
+  background: #f8f9fa;
 }
