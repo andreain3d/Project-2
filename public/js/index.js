@@ -27,6 +27,13 @@ var API = {
       url: "api/examples/" + id,
       type: "DELETE"
     });
+  },
+  addUser: (email, password) => {
+    return $.ajax({
+      url: "api/users",
+      type: "POST",
+      data: JSON.stringify({ email: email, password: password })
+    });
   }
 };
 
