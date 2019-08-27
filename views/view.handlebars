@@ -1,0 +1,47 @@
+<div id="view">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex flex-row-reverse">
+
+        <button id="logout" class="btn btn-warning mx-2">Log Out</button>
+        <p class="mx-2">Welcome {{email}}!</p>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 main mt-4 mb-4">
+                <h1 class="text-center mb-4">Your Pets</h1>
+                {{#unless pets}}
+                <h2>You don't have any pets yet...</h2><br>
+                {{/unless}}
+                {{#each pets}}
+                <img class="mt-3 mx-0" src="{{this.image}}">
+                <p><strong>Name: </strong>{{this.name}}</p>
+                <p><strong>Species: </strong>{{this.species}}</p>
+                <p><strong>Happiness: </strong>{{this.happiness}} / 100</p>
+                <p><strong>Fullness: </strong>{{this.fullness}} / 100</p>
+                <button class="btn btn-warning play" data-happiness="{{this.happiness}}" data-name="{{this.name}}"
+                    data-id="{{this.id}}">Play!</button>
+                <button class="btn btn-warning feed" data-fullness="{{this.fullness}}" data-name="{{this.name}}"
+                    data-id="{{this.id}}">Feed!</button>
+                <a href="#">
+                    <p class="text-center delete" data-name="{{this.name}}" data-id="{{this.id}}">Give Up Pet</p>
+                </a>
+                <hr>
+                {{/each}}
+                <button id="create-btn" class="btn btn-warning mb-4">Create A Pet!</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer pt-3 mt-4">
+        <p class="text-center">PetLife &copy; 2019</p>
+    </footer>
+
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script src="/js/view.js"></script>

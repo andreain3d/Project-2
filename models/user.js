@@ -1,10 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("user", {
-    id: {
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER
-    },
+  var User = sequelize.define("User", {
     email: {
       type: DataTypes.STRING,
       validate: {
@@ -14,8 +9,18 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    lastLogin: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW
     }
   });
+
+  User.associate = function(models) {
+    User.hasMany(models.Pet, {
+      onDelete: "cascade"
+    });
+  };
 
   return User;
 };
