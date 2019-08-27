@@ -49,7 +49,7 @@ module.exports = app => {
     console.log(req.body.id);
     if (req.body.type === "feed") {
       db.Pet.update(
-        { fullness: db.sequelize.literal("fullness + 10") },
+        { fullness: db.sequelize.literal("fullness + " + req.body.amount) },
         {
           where: {
             id: req.body.id
@@ -60,7 +60,7 @@ module.exports = app => {
       });
     } else if (req.body.type === "play") {
       db.Pet.update(
-        { happiness: db.sequelize.literal("happiness + 10") },
+        { happiness: db.sequelize.literal("happiness + " + req.body.amount) },
         {
           where: {
             id: req.body.id

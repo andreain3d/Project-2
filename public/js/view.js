@@ -25,9 +25,15 @@ $(function() {
 
   $(".play").on("click", function() {
     var petname = $(this).attr("data-name");
+    var happiness = $(this).attr("data-happiness");
     console.log(petname);
-    if ($(this).attr("data-happiness") < 100) {
-      var petid = { id: $(this).attr("data-id"), type: "play" };
+
+    if (happiness < 100) {
+      var amountToAdd = 10;
+      if (happiness > 90) {
+        amountToAdd = 100 - happiness;
+      }
+      var petid = { id: $(this).attr("data-id"), type: "play", amount: amountToAdd };
 
       $.ajax("/api/pets", { type: "PUT", data: petid }).then(function() {
         alert(petname + " is really excited to play!");
@@ -40,9 +46,14 @@ $(function() {
 
   $(".feed").on("click", function() {
     var petname = $(this).attr("data-name");
+    var fullness = $(this).attr("data-fullness");
     console.log(petname);
-    if ($(this).attr("data-fullness") < 100) {
-      var petid = { id: $(this).attr("data-id"), type: "feed" };
+    if (fullness < 100) {
+      var amountToAdd = 10;
+      if (fullness > 90) {
+        amountToAdd = 100 - fullness;
+      }
+      var petid = { id: $(this).attr("data-id"), type: "feed", amount: amountToAdd };
 
       $.ajax("/api/pets", { type: "PUT", data: petid }).then(function() {
         alert(petname + " really enjoyed that!");
