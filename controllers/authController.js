@@ -58,6 +58,20 @@ exports.view = function(req, res) {
   });
 };
 
+exports.play = function(req, res) {
+  var user;
+  db.User.findOne({ where: { id: req.user.id } })
+    .then(function(userdata) {
+      user = { email: userdata.dataValues.email, id: userdata.dataValues.id, pets: userdata.Pets };
+    })
+    .then(
+      db.Pet.findOne({ where: { id: req.params.id } }).then(function(pet) {
+        var gameData = { user: user, petimage: pet.dataValues.image };
+        res.render("play", gameData);
+      })
+    );
+};
+
 exports.create = function(req, res) {
   // console.log("this one" + req.user.id);
   db.User.findOne({ where: { id: req.user.id }, include: [db.Pet] }).then(function(user) {

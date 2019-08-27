@@ -11,6 +11,7 @@ module.exports = function(app, passport) {
   );
   app.get("/view", isLoggedIn, authController.view);
   app.get("/create", isLoggedIn, authController.create);
+  app.get("/play/:id", isLoggedIn, authController.play);
   app.get("/logout", authController.logout);
   app.post(
     "/signin",

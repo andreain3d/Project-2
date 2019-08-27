@@ -30,8 +30,8 @@ $(function() {
       var petid = { id: $(this).attr("data-id"), type: "play" };
 
       $.ajax("/api/pets", { type: "PUT", data: petid }).then(function() {
-        alert(petname + " was really excited to play!");
-        location.href = "/view";
+        alert(petname + " is really excited to play!");
+        location.href = "/play/" + petid.id;
       });
     } else {
       alert(petname + " is already perfectly content.  Maybe later?");
