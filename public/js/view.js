@@ -23,11 +23,26 @@ $(function() {
     }
   });
 
+  $(".play").on("click", function() {
+    var petname = $(this).attr("data-name");
+    console.log(petname);
+    if ($(this).attr("data-happiness") < 100) {
+      var petid = { id: $(this).attr("data-id"), type: "play" };
+
+      $.ajax("/api/pets", { type: "PUT", data: petid }).then(function() {
+        alert(petname + " was really excited to play!");
+        location.href = "/view";
+      });
+    } else {
+      alert(petname + " is already perfectly content.  Maybe later?");
+    }
+  });
+
   $(".feed").on("click", function() {
     var petname = $(this).attr("data-name");
     console.log(petname);
     if ($(this).attr("data-fullness") < 100) {
-      var petid = { id: $(this).attr("data-id") };
+      var petid = { id: $(this).attr("data-id"), type: "feed" };
 
       $.ajax("/api/pets", { type: "PUT", data: petid }).then(function() {
         alert(petname + " really enjoyed that!");

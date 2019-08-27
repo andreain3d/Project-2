@@ -47,16 +47,29 @@ module.exports = app => {
 
   app.put("/api/pets", function(req, res) {
     console.log(req.body.id);
-    db.Pet.update(
-      { fullness: db.sequelize.literal("fullness + 10") },
-      {
-        where: {
-          id: req.body.id
+    if (req.body.type === "feed") {
+      db.Pet.update(
+        { fullness: db.sequelize.literal("fullness + 10") },
+        {
+          where: {
+            id: req.body.id
+          }
         }
-      }
-    ).then(function(data) {
-      res.json(data);
-    });
+      ).then(function(data) {
+        res.json(data);
+      });
+    } else if (req.body.type === "play") {
+      db.Pet.update(
+        { happiness: db.sequelize.literal("happiness + 10") },
+        {
+          where: {
+            id: req.body.id
+          }
+        }
+      ).then(function(data) {
+        res.json(data);
+      });
+    }
   });
 
   app.delete("/api/pets", function(req, res) {

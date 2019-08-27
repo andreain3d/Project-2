@@ -16,8 +16,8 @@ $(function() {
     $.ajax("/signup", {
       type: "POST",
       data: newUser
-    }).then(function(res) {
-      console.log("attempting signup", res);
+    }).then(function() {
+      location.href = "/view";
     });
   });
 
