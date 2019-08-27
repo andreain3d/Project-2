@@ -1,7 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Joseph96",
+    "password": "root",
+    "port": 3307,
     "database": "project2_db",
     "host": "localhost",
     "dialect": "mysql"
