@@ -88,7 +88,6 @@ function createPet() {
 function checkCollision(ball, pet) {
   var ballLeft = parseInt(ball.style.left);
   var ballTop = parseInt(ball.style.top);
-  var ballBottom = ballTop - 50;
   var petTop = parseInt(pet.style.top);
   var petBottom = petTop - 50;
   var petLeft = parseInt(pet.style.left);

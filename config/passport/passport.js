@@ -51,7 +51,7 @@ module.exports = function(passport, user) {
               password: userPassword
             };
 
-            User.create(data).then(function(newUser, created) {
+            User.create(data).then(function(newUser) {
               if (!newUser) {
                 return done(null, false);
               }

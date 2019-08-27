@@ -3,8 +3,26 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     species: DataTypes.STRING,
     image: DataTypes.STRING,
-    happiness: DataTypes.INTEGER,
-    fullness: DataTypes.INTEGER
+    happiness: {
+      type: DataTypes.INTEGER,
+      validate: {
+        customValidator(value) {
+          if (value < 0) {
+            throw new Error("happiness can't be less than 0");
+          }
+        }
+      }
+    },
+    fullness: {
+      type: DataTypes.INTEGER,
+      validate: {
+        customValidator(value) {
+          if (value < 0) {
+            throw new Error("fullness can't be less than 0");
+          }
+        }
+      }
+    }
   });
 
   Pet.associate = function(models) {
