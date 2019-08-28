@@ -18,7 +18,10 @@ gameScene.create = function() {
 
   bg.on("pointerdown", this.placeItem, this);
 
-  this.pet = this.add.sprite(100, 200, "pet", 0).setInteractive();
+  this.pet = this.add
+    .sprite(100, 200, "pet", 0)
+    .setInteractive()
+    .setScale(0.5);
   this.pet.depth = 1;
 
   this.input.setDraggable(this.pet);

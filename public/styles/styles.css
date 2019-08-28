@@ -117,3 +117,7 @@ ol.carousel-indicators li.active {
   width: 50px;
   position: absolute;
 }
+
+#return {
+  display: none;
+}

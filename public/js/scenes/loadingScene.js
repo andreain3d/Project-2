@@ -33,13 +33,13 @@ loadingScene.preload = function() {
     this
   );
 
-  this.load.image("backyard", "assets/images/home1.png");
-  this.load.image("apple", "assets/images/apple.png");
-  this.load.image("candy", "assets/images/candy.png");
-  this.load.image("rotate", "assets/images/rotate.png");
-  this.load.image("toy", "assets/images/logo.png");
+  this.load.image("backyard", "/images/home1.png");
+  this.load.image("apple", "/images/apple.png");
+  this.load.image("candy", "/images/candy.png");
+  this.load.image("rotate", "/images/rotate.png");
+  this.load.image("toy", "/images/logo.png");
 
-  this.load.image("pet", "assets/images/howl.png");
+  this.load.image("pet", window.petData.image);
 };
 
 loadingScene.create = function() {
