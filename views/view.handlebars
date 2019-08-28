@@ -18,10 +18,10 @@
                 <p><strong>Species: </strong>{{this.species}}</p>
                 <p><strong>Happiness: </strong>{{this.happiness}} / 100</p>
                 <p><strong>Fullness: </strong>{{this.fullness}} / 100</p>
-                <button class="btn btn-warning play" data-happiness="{{this.happiness}}" data-name="{{this.name}}"
-                    data-id="{{this.id}}">Play!</button>
-                <button class="btn btn-warning feed" data-fullness="{{this.fullness}}" data-name="{{this.name}}"
-                    data-id="{{this.id}}">Feed!</button>
+                <button class="btn btn-warning play" data-image="{{this.image}}" data-happiness="{{this.happiness}}"
+                    data-name="{{this.name}}" data-id="{{this.id}}">Play!</button>
+                <button class="btn btn-warning feed" data-image="{{this.image}}" data-fullness="{{this.fullness}}"
+                    data-name="{{this.name}}" data-id="{{this.id}}">Feed!</button>
                 <a href="#">
                     <p class="text-center delete" data-name="{{this.name}}" data-id="{{this.id}}">Give Up Pet</p>
                 </a>
@@ -30,6 +30,8 @@
                 <button id="create-btn" class="btn btn-warning mb-4">Create A Pet!</button>
             </div>
         </div>
+        <div id="phaser-game" class="mt-3 d-flex justify-content-center"></div>
+        <div><button class="btn btn-warning" id="return">Return to Pets</button></div>
     </div>
     <footer class="footer pt-3 mt-4">
         <p class="text-center">PetLife &copy; 2019</p>
@@ -44,4 +46,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.19.0/dist/phaser.js"> </script>
 <script src="/js/view.js"></script>
+<script src="js/scenes/bootScene.js"></script>
+<script src="js/scenes/loadingScene.js"></script>
+<script src="js/scenes/homeScene.js"></script>
+<script src="js/scenes/gameScene.js"></script>
