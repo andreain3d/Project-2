@@ -33,17 +33,17 @@ gameScene.create = function() {
 
   this.createUi();
 
-  this.createHud();
-  this.refreshHud();
+  // this.createHud();
+  // this.refreshHud();
 
-  this.timedEventStats = this.time.addEvent({
-    delay: 1000,
-    repeat: -1,
-    callback: function() {
-      this.updateStats(this.decayRates);
-    },
-    callbackScope: this
-  });
+  // this.timedEventStats = this.time.addEvent({
+  //   delay: 1000,
+  //   repeat: -1,
+  //   callback: function() {
+  //     this.updateStats(this.decayRates);
+  //   },
+  //   callbackScope: this
+  // });
 };
 
 gameScene.createUi = function() {
@@ -116,52 +116,52 @@ gameScene.placeItem = function(pointer, localX, localY) {
     onComplete: function(tween, sprites) {
       newItem.destroy();
 
-      this.updateStats(this.selectedItem.customStats);
+      // this.updateStats(this.selectedItem.customStats);
 
       this.uiReady();
     }
   });
 };
 
-gameScene.createHud = function() {
-  this.healthText = this.add.text(20, 20, "Health: ", {
-    font: "24px Arial",
-    fill: "#000000"
-  });
+// gameScene.createHud = function() {
+//   this.healthText = this.add.text(20, 20, "Health: ", {
+//     font: "24px Arial",
+//     fill: "#000000"
+//   });
 
-  this.funText = this.add.text(170, 20, "Fun: ", {
-    font: "24px Arial",
-    fill: "#000000"
-  });
-};
+//   this.funText = this.add.text(170, 20, "Fun: ", {
+//     font: "24px Arial",
+//     fill: "#000000"
+//   });
+// };
 
-gameScene.refreshHud = function() {
-  this.healthText.setText("Health: " + this.stats.health);
-  this.funText.setText("Fun: " + this.stats.fun);
-};
+// gameScene.refreshHud = function() {
+//   this.healthText.setText("Health: " + this.stats.health);
+//   this.funText.setText("Fun: " + this.stats.fun);
+// };
 
-gameScene.updateStats = function(statDiff) {
-  let isGameOver = false;
+// gameScene.updateStats = function(statDiff) {
+//   let isGameOver = false;
 
-  for (stat in statDiff) {
-    if (statDiff.hasOwnProperty(stat)) {
-      this.stats[stat] += statDiff[stat];
+//   for (stat in statDiff) {
+//     if (statDiff.hasOwnProperty(stat)) {
+//       this.stats[stat] += statDiff[stat];
 
-      if (this.stats[stat] < 0) {
-        isGameOver = true;
-        this.stats[stat] = 0;
-      }
+//       if (this.stats[stat] < 0) {
+//         isGameOver = true;
+//         this.stats[stat] = 0;
+//       }
 
-      if (this.stats[stat] > 100) {
-        this.stats[stat] = 100;
-      }
-    }
-  }
+//       if (this.stats[stat] > 100) {
+//         this.stats[stat] = 100;
+//       }
+//     }
+//   }
 
-  this.refreshHud();
+//   this.refreshHud();
 
-  if (isGameOver) this.gameOver();
-};
+//   if (isGameOver) this.gameOver();
+// };
 
 gameScene.gameOver = function() {
   this.uiBlocked = true;

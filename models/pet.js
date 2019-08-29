@@ -4,24 +4,24 @@ module.exports = function(sequelize, DataTypes) {
     species: DataTypes.STRING,
     image: DataTypes.STRING,
     happiness: {
-      type: DataTypes.INTEGER,
-      validate: {
-        customValidator(value) {
-          if (value < 0) {
-            throw new Error("happiness can't be less than 0");
-          }
-        }
-      }
+      type: DataTypes.INTEGER
+      // validate: {
+      //   customValidator(value) {
+      //     if (value < 0) {
+      //       throw new Error("happiness can't be less than 0");
+      //     }
+      //   }
+      // }
     },
     fullness: {
-      type: DataTypes.INTEGER,
-      validate: {
-        customValidator(value) {
-          if (value < 0) {
-            throw new Error("fullness can't be less than 0");
-          }
-        }
-      }
+      type: DataTypes.INTEGER
+      // validate: {
+      //   customValidator(value) {
+      //     if (value < 0) {
+      //       throw new Error("fullness can't be less than 0");
+      //     }
+      //   }
+      // }
     }
   });
 

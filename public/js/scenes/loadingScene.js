@@ -37,7 +37,7 @@ loadingScene.preload = function() {
   this.load.image("apple", "/images/apple.png");
   this.load.image("candy", "/images/candy.png");
   this.load.image("rotate", "/images/rotate.png");
-  this.load.image("toy", "/images/logo.png");
+  this.load.image("toy", "/images/chicken.png");
 
   this.load.image("pet", window.petData.image);
 };

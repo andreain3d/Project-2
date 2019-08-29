@@ -36,25 +36,43 @@ exports.view = function(req, res) {
           {
             where: { id: req.session.passport.user }
           }
-        ).then(function() {
-          db.User.findOne({ where: { id: req.session.passport.user }, include: [db.Pet] }).then(
-            function(user) {
-              var user = { email: user.dataValues.email, id: user.dataValues.id, pets: user.Pets };
-              // console.log(user);
-              res.render("view", user);
-            }
-          );
-        });
+        )
+          .then(function() {
+            db.Pet.update(
+              {
+                happiness: 0
+              },
+              {
+                where: {
+                  happiness: db.sequelize.literal("happiness < 0"),
+                  UserId: req.session.passport.user
+                }
+              }
+            );
+          })
+          .then(function() {
+            db.Pet.update(
+              {
+                fullness: 0
+              },
+              {
+                where: {
+                  fullness: db.sequelize.literal("fullness < 0"),
+                  UserId: req.session.passport.user
+                }
+              }
+            );
+          });
       });
-    } else {
-      db.User.findOne({ where: { id: req.session.passport.user }, include: [db.Pet] }).then(
-        function(user) {
-          var user = { email: user.dataValues.email, id: user.dataValues.id, pets: user.Pets };
-          // console.log(user);
-          res.render("view", user);
-        }
-      );
     }
+
+    db.User.findOne({ where: { id: req.session.passport.user }, include: [db.Pet] }).then(function(
+      user
+    ) {
+      var user = { email: user.dataValues.email, id: user.dataValues.id, pets: user.Pets };
+      // console.log(user);
+      res.render("view", user);
+    });
   });
 };
 
