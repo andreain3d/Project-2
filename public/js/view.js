@@ -83,7 +83,7 @@ $(function() {
       var petid = { id: $(this).attr("data-id"), type: "play", amount: amountToAdd };
 
       $.ajax("/api/pets", { type: "PUT", data: petid }).then(function() {
-        alert(petname + " is really excited to play!");
+        // alert(petname + " is really excited to play!");
         location.href = "/play/" + petid.id;
       });
 
