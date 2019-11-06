@@ -4,7 +4,11 @@ PetLife is a browser-based pet care game. Users can make an account, create pets
 
 ## Access
 
-Petlife is available [here](https://frozen-dusk-87401.herokuapp.com/)
+Petlife is available [here.](https://frozen-dusk-87401.herokuapp.com/)
+
+Users can create an account, or use following test account:
+**Username:** a@b.com
+**Password:** c
 
 ## Technologies Used
 
