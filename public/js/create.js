@@ -62,7 +62,7 @@ $(function() {
           imgUrl = "/images/hamster-green.png";
           break;
         default:
-          imgUrl = "/images/dog.png";
+          imgUrl = "/images/hamster.png";
           break;
       }
     }
